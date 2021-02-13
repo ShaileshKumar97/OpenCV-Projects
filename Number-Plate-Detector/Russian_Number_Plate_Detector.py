@@ -3,7 +3,7 @@ import cv2
 #############################################
 frameWidth = 640
 frameHeight = 480
-nPlateCascade = cv2.CascadeClassifier(r"C:\Users\shail\Downloads\Github.com\OpenCV-Projects\Number-Plate-Detector\haarcascade\haarcascade_russian_plate_number.xml")
+nPlateCascade = cv2.CascadeClassifier("haarcascade\haarcascade_russian_plate_number.xml")
 minArea = 200
 color = (255,0,255)
 ###############################################
@@ -30,7 +30,7 @@ while True:
     cv2.imshow("Result", img)
 
     if cv2.waitKey(1) & 0xFF == ord('s'):
-        cv2.imwrite(r"C:\Users\shail\Downloads\Github.com\OpenCV-Projects\Number-Plate-Detector\Scanned\NoPlate_"+str(count)+".jpg",imgRoi)
+        cv2.imwrite("Scanned\NoPlate_"+str(count)+".jpg",imgRoi)
         cv2.rectangle(img,(0,200),(640,300),(0,255,0),cv2.FILLED)
         cv2.putText(img,"Scan Saved",(150,265),cv2.FONT_HERSHEY_DUPLEX,2,(0,0,255),2)
         cv2.imshow("Result",img)
